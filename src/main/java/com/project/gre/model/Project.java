@@ -1,10 +1,9 @@
 package com.project.gre.model;
 
 import com.project.gre.model.common.EntityBase;
-import com.project.gre.model.enamuration.ProjectStatus;
 import lombok.Getter;
 import lombok.Setter;
-
+import com.project.gre.enamuration.ProjectStatus;
 import javax.persistence.*;
 
 @Entity

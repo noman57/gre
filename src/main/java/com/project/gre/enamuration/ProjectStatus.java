@@ -1,4 +1,4 @@
-package com.project.gre.model.enamuration;
+package com.project.gre.enamuration;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 

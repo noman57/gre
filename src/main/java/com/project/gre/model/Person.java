@@ -2,11 +2,11 @@ package com.project.gre.model;
 
 import com.project.gre.model.common.EntityBase;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 @Entity
 @Getter
