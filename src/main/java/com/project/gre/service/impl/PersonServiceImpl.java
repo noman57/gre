@@ -2,7 +2,7 @@ package com.project.gre.service.impl;
 
 import com.project.gre.exception.ResourceNotFoundException;
 import com.project.gre.model.Person;
-import com.project.gre.model.dto.PersonDTO;
+import com.project.gre.dto.PersonDTO;
 import com.project.gre.repository.PersonRepository;
 import com.project.gre.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;

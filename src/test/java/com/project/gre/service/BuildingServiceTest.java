@@ -2,7 +2,7 @@ package com.project.gre.service;
 
 import com.project.gre.exception.ResourceNotFoundException;
 import com.project.gre.model.Building;
-import com.project.gre.model.dto.BuildingDTO;
+import com.project.gre.dto.BuildingDTO;
 import com.project.gre.repository.BuildingRepository;
 import com.project.gre.service.impl.BuildingServiceImpl;
 import org.junit.Before;
@@ -97,7 +97,7 @@ public class BuildingServiceTest {
     @Test(expected = ResourceNotFoundException.class)
     public void findShouldThrowException() {
         given(buildingRepository.findById(1L))
-                .willReturn(Optional.ofNullable(null));
+                .willReturn(Optional.empty());
          buildingService.find(1L);
 
     }

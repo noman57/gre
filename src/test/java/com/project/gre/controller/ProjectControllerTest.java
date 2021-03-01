@@ -4,10 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.gre.enamuration.ProjectStatus;
 import com.project.gre.exception.ResourceNotFoundException;
 import com.project.gre.filter.ProjectFilterDTO;
-import com.project.gre.model.Building;
-import com.project.gre.model.Person;
 import com.project.gre.model.Project;
-import com.project.gre.model.dto.ProjectDTO;
+import com.project.gre.dto.ProjectDTO;
 import com.project.gre.service.ProjectService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,11 +15,9 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.ArrayList;
@@ -128,6 +124,6 @@ public class ProjectControllerTest {
         when(projectService.findByFilter(any(ProjectFilterDTO.class), any(PageRequest.class))).thenReturn(pagedResponse);
          mockMvc.perform(MockMvcRequestBuilders.get("/v1/projects/filter?personId=1&buildingId=1")
         ).andExpect(status().isOk())
-                .andExpect(jsonPath("$.content").isNotEmpty());;
+                .andExpect(jsonPath("$.content").isNotEmpty());
     }
 }

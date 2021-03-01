@@ -2,7 +2,7 @@ package com.project.gre.service;
 
 import com.project.gre.exception.ResourceNotFoundException;
 import com.project.gre.model.Person;
-import com.project.gre.model.dto.PersonDTO;
+import com.project.gre.dto.PersonDTO;
 import com.project.gre.repository.PersonRepository;
 import com.project.gre.service.impl.PersonServiceImpl;
 import org.junit.Before;
@@ -100,7 +100,7 @@ public class PersonServiceTest {
     @Test(expected = ResourceNotFoundException.class)
     public void findShouldThrowException() {
         given(personRepository.findById(1L))
-                .willReturn(Optional.ofNullable(null));
+                .willReturn(Optional.empty());
          personService.find(1L);
 
     }

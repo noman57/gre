@@ -1,7 +1,7 @@
 package com.project.gre.service;
 import com.project.gre.filter.ProjectFilterDTO;
 import com.project.gre.model.Project;
-import com.project.gre.model.dto.ProjectDTO;
+import com.project.gre.dto.ProjectDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

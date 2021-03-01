@@ -1,4 +1,4 @@
-package com.project.gre.model.dto;
+package com.project.gre.dto;
 import  com.project.gre.enamuration.ProjectStatus;
 import lombok.Getter;
 import lombok.Setter;

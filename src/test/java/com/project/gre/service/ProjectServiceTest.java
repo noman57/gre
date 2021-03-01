@@ -1,17 +1,13 @@
 package com.project.gre.service;
 
-import com.fasterxml.jackson.databind.ser.PropertyFilter;
 import com.project.gre.exception.ResourceNotFoundException;
 import com.project.gre.filter.ProjectFilterDTO;
 import com.project.gre.filter.ProjectSpecification;
 import com.project.gre.model.Building;
 import com.project.gre.model.Person;
 import com.project.gre.model.Project;
-import com.project.gre.model.dto.PersonDTO;
-import com.project.gre.model.dto.ProjectDTO;
-import com.project.gre.repository.PersonRepository;
+import com.project.gre.dto.ProjectDTO;
 import com.project.gre.repository.ProjectRepository;
-import com.project.gre.service.impl.PersonServiceImpl;
 import com.project.gre.service.impl.ProjectServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -138,7 +134,7 @@ public class ProjectServiceTest {
     @Test(expected = ResourceNotFoundException.class)
     public void findShouldThrowException() {
         given(projectRepository.findById(1L))
-                .willReturn(Optional.ofNullable(null));
+                .willReturn(Optional.empty());
          projectService.find(1L);
 
     }

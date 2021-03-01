@@ -2,7 +2,7 @@ package com.project.gre.controller;
 
 import com.project.gre.filter.ProjectFilterDTO;
 import com.project.gre.model.Project;
-import com.project.gre.model.dto.ProjectDTO;
+import com.project.gre.dto.ProjectDTO;
 import com.project.gre.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

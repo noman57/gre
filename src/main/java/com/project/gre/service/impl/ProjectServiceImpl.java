@@ -4,7 +4,7 @@ import com.project.gre.exception.ResourceNotFoundException;
 import com.project.gre.filter.ProjectFilterDTO;
 import com.project.gre.filter.ProjectSpecification;
 import com.project.gre.model.Project;
-import com.project.gre.model.dto.ProjectDTO;
+import com.project.gre.dto.ProjectDTO;
 import com.project.gre.repository.ProjectRepository;
 import com.project.gre.service.BuildingService;
 import com.project.gre.service.PersonService;

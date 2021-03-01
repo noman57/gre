@@ -1,7 +1,7 @@
 package com.project.gre.controller;
 
 import com.project.gre.model.Person;
-import com.project.gre.model.dto.PersonDTO;
+import com.project.gre.dto.PersonDTO;
 import com.project.gre.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

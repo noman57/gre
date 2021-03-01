@@ -3,7 +3,7 @@ package com.project.gre.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.gre.exception.ResourceNotFoundException;
 import com.project.gre.model.Person;
-import com.project.gre.model.dto.PersonDTO;
+import com.project.gre.dto.PersonDTO;
 import com.project.gre.service.PersonService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,7 +1,7 @@
 package com.project.gre.controller;
 
 import com.project.gre.model.Building;
-import com.project.gre.model.dto.BuildingDTO;
+import com.project.gre.dto.BuildingDTO;
 import com.project.gre.service.BuildingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
