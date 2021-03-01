@@ -1,5 +1,6 @@
 package com.project.gre.controller;
 
+import com.project.gre.filter.ProjectFilterDTO;
 import com.project.gre.model.Project;
 import com.project.gre.model.dto.ProjectDTO;
 import com.project.gre.service.ProjectService;
@@ -54,6 +55,12 @@ public class ProjectController {
     public ResponseEntity<String> updateProject(@PathVariable long projectId,@Valid @RequestBody ProjectDTO projectDTO)  {
         projectService.update(projectId,projectDTO);
         return ResponseEntity.ok().body("");
+    }
+
+    @GetMapping("/filter")
+    public ResponseEntity<Page<Project>> findProjectByFilter(@RequestParam (required = false)  Long personId, @RequestParam  (required = false)  Long buildingId,Pageable pageable)  {
+        Page<Project> projectsByFilter = projectService.findByFilter(new ProjectFilterDTO(personId, buildingId), pageable);
+        return ResponseEntity.ok().body(projectsByFilter);
     }
 
 }

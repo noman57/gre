@@ -1,10 +1,11 @@
 package com.project.gre.filter;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProjectFilterDTO {
 
     private Long buildingId;
