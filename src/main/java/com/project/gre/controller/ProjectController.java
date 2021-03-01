@@ -44,7 +44,7 @@ public class ProjectController {
         projectService.delete(projectId);
     }
 
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<String> createProject(@Valid @RequestBody ProjectDTO projectDTO, final UriComponentsBuilder ucBuilder)  {
         Project person = projectService.create(projectDTO);
         final URI uri = ucBuilder.path("/projects/{id}").buildAndExpand(person.getId()).toUri();

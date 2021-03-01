@@ -1,5 +1,6 @@
 package com.project.gre.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.project.gre.model.common.EntityBase;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,9 +24,11 @@ public class Project extends EntityBase {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "building_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Building building;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "person_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Person person;
 }

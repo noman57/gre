@@ -1,8 +1,6 @@
 package com.project.gre.service;
 
-import com.project.gre.model.Building;
 import com.project.gre.model.Person;
-import com.project.gre.model.dto.BuildingDTO;
 import com.project.gre.model.dto.PersonDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
