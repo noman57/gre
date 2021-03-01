@@ -37,21 +37,20 @@ public class BuildingServiceImpl implements BuildingService {
     @Override
     public void delete(Long id) {
         Building building = find(id);
-          buildingRepository.delete(building);;
+          buildingRepository.delete(building);
     }
 
     @Override
     public Building create(BuildingDTO buildingDTO) {
         Building building = new Building();
         building.setName(buildingDTO.getName());
-        Building savedbuilding = buildingRepository.save(building);
-        return savedbuilding;
+        return buildingRepository.save(building);
     }
 
     @Override
-    public Building update(long buildingId, BuildingDTO BuildingDTO) {
+    public Building update(long buildingId, BuildingDTO buildingDTO) {
         Building building = find(buildingId);
-        building.setName(BuildingDTO.getName());
+        building.setName(buildingDTO.getName());
         return buildingRepository.save(building);
     }
 

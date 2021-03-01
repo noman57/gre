@@ -1,6 +1,5 @@
 package com.project.gre.service.impl;
 
-import com.fasterxml.jackson.databind.ser.PropertyFilter;
 import com.project.gre.exception.ResourceNotFoundException;
 import com.project.gre.filter.ProjectFilterDTO;
 import com.project.gre.filter.ProjectSpecification;
@@ -48,7 +47,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public void delete(Long id) {
         Project project = find(id);
-        projectRepository.delete(project);;
+        projectRepository.delete(project);
     }
 
     @Override

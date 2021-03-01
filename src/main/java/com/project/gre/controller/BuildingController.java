@@ -28,7 +28,7 @@ public class BuildingController {
         this.buildingService = buildingService;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public HttpEntity<Page<Building>> getBuildings(final Pageable pageable) {
         Page<Building> buildingPage = buildingService.findAll(pageable);
         return ResponseEntity.ok(buildingPage);
@@ -45,9 +45,8 @@ public class BuildingController {
         buildingService.delete(buildingId);
     }
 
-    @PostMapping("/")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<?> createBuilding(@Valid @RequestBody BuildingDTO buildingDTO,final UriComponentsBuilder ucBuilder)  {
+    @PostMapping
+    public ResponseEntity<String> createBuilding(@Valid @RequestBody BuildingDTO buildingDTO,final UriComponentsBuilder ucBuilder)  {
         Building building = buildingService.create(buildingDTO);
         final URI uri = ucBuilder.path("/buildings/{id}").buildAndExpand(building.getId()).toUri();
         return ResponseEntity.created(uri).build();

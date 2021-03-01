@@ -1,15 +1,12 @@
 package com.project.gre.controller;
 
-import com.project.gre.model.Person;
 import com.project.gre.model.Project;
-import com.project.gre.model.dto.PersonDTO;
 import com.project.gre.model.dto.ProjectDTO;
 import com.project.gre.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;

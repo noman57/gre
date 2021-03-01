@@ -15,5 +15,5 @@ public interface BuildingService {
 
     Building create(BuildingDTO buildingDTO) ;
 
-    Building update(long buildingId, BuildingDTO BuildingDTO);
+    Building update(long buildingId, BuildingDTO buildingDTO);
 }

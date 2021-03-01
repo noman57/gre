@@ -37,13 +37,13 @@ public class ProjectRepositoryTest {
 
 
     @Test
-    public void createShouldCreate() {
+    public void createShouldCreateNewProject() {
         Project project = new Project();
         project.setName("b1");
         project.setStaus(ProjectStatus.IN_PROGRESS);
         Project persistBuilding = testEntityManager.persistAndFlush(project);
         Optional<Project> projectOptional = projectRepository.findById(persistBuilding.getId());
-        assertThat(projectOptional.isPresent()).isTrue();
+        assertThat(projectOptional).isPresent();
     }
 
 
@@ -107,7 +107,7 @@ public class ProjectRepositoryTest {
         criteria.setPersonId(66L);
         ProjectSpecification projectSpecification = new ProjectSpecification(criteria);
         Page<Project> byPersonId = projectRepository.findAll(projectSpecification,Pageable.unpaged());
-        assertThat(byPersonId).hasSize(0);
+        assertThat(byPersonId).isEmpty();
     }
 
 
