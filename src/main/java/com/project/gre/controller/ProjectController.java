@@ -17,7 +17,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/v1/projects")
-@CrossOrigin
+@CrossOrigin("*")
 public class ProjectController {
 
     private ProjectService projectService;

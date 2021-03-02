@@ -17,7 +17,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/v1/buildings")
-@CrossOrigin
+@CrossOrigin("*")
 public class BuildingController {
 
     private BuildingService buildingService;

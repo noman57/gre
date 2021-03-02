@@ -16,7 +16,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/v1/persons")
-@CrossOrigin
+@CrossOrigin("*")
 public class PersonController {
 
     private PersonService personService;
