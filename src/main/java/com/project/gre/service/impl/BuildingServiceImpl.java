@@ -43,6 +43,8 @@ public class BuildingServiceImpl implements BuildingService {
         Building building = find(id);
         if (projectRepository.countByBuilding_Id(id) == 0) {
             buildingRepository.delete(building);
+        }else{
+            throw new IllegalArgumentException("Building already linked with project");
         }
 
     }
