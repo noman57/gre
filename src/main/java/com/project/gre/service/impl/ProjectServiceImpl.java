@@ -55,7 +55,7 @@ public class ProjectServiceImpl implements ProjectService {
         Project project = new Project();
         project.setName(projectDTO.getName());
         project.setDescription(projectDTO.getDescription());
-        project.setStaus(projectDTO.getStatus());
+        project.setStatus(projectDTO.getStatus());
         project.setBuilding(buildingService.find(projectDTO.getBuildingId()));
         project.setPerson(personService.find(projectDTO.getPersonId()));
         return projectRepository.save(project);
@@ -66,7 +66,7 @@ public class ProjectServiceImpl implements ProjectService {
         Project project = find(projectId);
         project.setName(projectDTO.getName());
         project.setDescription(projectDTO.getDescription());
-        project.setStaus(projectDTO.getStatus());
+        project.setStatus(projectDTO.getStatus());
         project.setBuilding(buildingService.find(projectDTO.getBuildingId()));
         project.setPerson(personService.find(projectDTO.getPersonId()));
         return projectRepository.save(project);

@@ -19,7 +19,7 @@ public class Project extends EntityBase {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "project_status", nullable = false)
-    private ProjectStatus staus;
+    private ProjectStatus status;
 
 
     @ManyToOne(fetch = FetchType.LAZY)

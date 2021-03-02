@@ -84,7 +84,7 @@ public class ProjectServiceTest {
         assertThat(updatedProject.getName()).isEqualTo(projectDTO.getName());
         assertThat(updatedProject.getBuilding()).isEqualTo(building);
         assertThat(updatedProject.getPerson()).isEqualTo(person);
-        assertThat(updatedProject.getStaus()).isEqualTo(projectDTO.getStatus());
+        assertThat(updatedProject.getStatus()).isEqualTo(projectDTO.getStatus());
 
     }
 
@@ -114,7 +114,7 @@ public class ProjectServiceTest {
         assertThat(updatedProject.getName()).isEqualTo(projectDTO.getName());
         assertThat(updatedProject.getBuilding()).isEqualTo(building);
         assertThat(updatedProject.getPerson()).isEqualTo(person);
-        assertThat(updatedProject.getStaus()).isEqualTo(projectDTO.getStatus());
+        assertThat(updatedProject.getStatus()).isEqualTo(projectDTO.getStatus());
 
     }
 
@@ -152,6 +152,7 @@ public class ProjectServiceTest {
     @Test
     public void findProjectsByFilterAndReturnSuccess() {
         doReturn(Page.empty()).when(projectRepository).findAll(any(ProjectSpecification.class), any(Pageable.class));
-        projectService.findByFilter(mock(ProjectFilterDTO.class), Pageable.unpaged());
+        Page<Project> byFilter = projectService.findByFilter(mock(ProjectFilterDTO.class), Pageable.unpaged());
+        assertThat(byFilter).hasSize(0);
     }
 }

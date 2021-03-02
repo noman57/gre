@@ -40,7 +40,7 @@ public class ProjectRepositoryTest {
     public void createShouldCreateNewProject() {
         Project project = new Project();
         project.setName("b1");
-        project.setStaus(ProjectStatus.IN_PROGRESS);
+        project.setStatus(ProjectStatus.IN_PROGRESS);
         Project persistBuilding = testEntityManager.persistAndFlush(project);
         Optional<Project> projectOptional = projectRepository.findById(persistBuilding.getId());
         assertThat(projectOptional).isPresent();
@@ -57,7 +57,7 @@ public class ProjectRepositoryTest {
         person = testEntityManager.persistAndFlush(person);
         Project project = new Project();
         project.setName("b1");
-        project.setStaus(ProjectStatus.IN_PROGRESS);
+        project.setStatus(ProjectStatus.IN_PROGRESS);
         project.setBuilding(building);
         project.setPerson(person);
         testEntityManager.persistAndFlush(project);
@@ -76,7 +76,7 @@ public class ProjectRepositoryTest {
         person = testEntityManager.persistAndFlush(person);
         Project project = new Project();
         project.setName("b1");
-        project.setStaus(ProjectStatus.IN_PROGRESS);
+        project.setStatus(ProjectStatus.IN_PROGRESS);
         project.setBuilding(building);
         project.setPerson(person);
         testEntityManager.persistAndFlush(project);
@@ -98,7 +98,7 @@ public class ProjectRepositoryTest {
         person = testEntityManager.persistAndFlush(person);
         Project project = new Project();
         project.setName("b1");
-        project.setStaus(ProjectStatus.IN_PROGRESS);
+        project.setStatus(ProjectStatus.IN_PROGRESS);
         project.setBuilding(building);
         project.setPerson(person);
         testEntityManager.persistAndFlush(project);
