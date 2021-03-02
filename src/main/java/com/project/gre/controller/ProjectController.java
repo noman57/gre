@@ -59,7 +59,7 @@ public class ProjectController {
 
     @GetMapping("/filter")
     public ResponseEntity<Page<Project>> findProjectByFilter(@RequestParam (required = false)  Long personId, @RequestParam  (required = false)  Long buildingId,Pageable pageable)  {
-        Page<Project> projectsByFilter = projectService.findByFilter(new ProjectFilterDTO(personId, buildingId), pageable);
+        Page<Project> projectsByFilter = projectService.findByFilter(new ProjectFilterDTO(buildingId, personId), pageable);
         return ResponseEntity.ok().body(projectsByFilter);
     }
 
