@@ -4,6 +4,7 @@ import com.project.gre.exception.ResourceNotFoundException;
 import com.project.gre.model.Building;
 import com.project.gre.dto.BuildingDTO;
 import com.project.gre.repository.BuildingRepository;
+import com.project.gre.repository.ProjectRepository;
 import com.project.gre.service.BuildingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,9 +18,12 @@ public class BuildingServiceImpl implements BuildingService {
 
     private BuildingRepository buildingRepository;
 
+    private ProjectRepository projectRepository;
+
     @Autowired
-    public BuildingServiceImpl(BuildingRepository buildingRepository) {
+    public BuildingServiceImpl(BuildingRepository buildingRepository, ProjectRepository projectRepository) {
         this.buildingRepository = buildingRepository;
+        this.projectRepository = projectRepository;
     }
 
 
@@ -31,13 +35,16 @@ public class BuildingServiceImpl implements BuildingService {
     @Override
     public Building find(Long id) {
         Optional<Building> buildingOptional = buildingRepository.findById(id);
-        return buildingOptional.orElseThrow(()->new ResourceNotFoundException("No building found with id "+id));
+        return buildingOptional.orElseThrow(() -> new ResourceNotFoundException("No building found with id " + id));
     }
 
     @Override
     public void delete(Long id) {
         Building building = find(id);
-          buildingRepository.delete(building);
+        if (projectRepository.countByBuilding_Id(id) == 0) {
+            buildingRepository.delete(building);
+        }
+
     }
 
     @Override
@@ -53,5 +60,4 @@ public class BuildingServiceImpl implements BuildingService {
         building.setName(buildingDTO.getName());
         return buildingRepository.save(building);
     }
-
 }

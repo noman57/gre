@@ -4,6 +4,7 @@ import com.project.gre.exception.ResourceNotFoundException;
 import com.project.gre.model.Person;
 import com.project.gre.dto.PersonDTO;
 import com.project.gre.repository.PersonRepository;
+import com.project.gre.repository.ProjectRepository;
 import com.project.gre.service.impl.PersonServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,10 +33,13 @@ public class PersonServiceTest {
     @Mock
     private PersonRepository personRepository;
 
+    @Mock
+    private ProjectRepository projectRepository;
+
     @Before
     public void setUp()
     {
-        personService = new PersonServiceImpl(personRepository);
+        personService = new PersonServiceImpl(personRepository,projectRepository);
     }
 
 

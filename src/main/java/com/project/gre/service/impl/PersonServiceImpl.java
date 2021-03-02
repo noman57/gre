@@ -4,6 +4,7 @@ import com.project.gre.exception.ResourceNotFoundException;
 import com.project.gre.model.Person;
 import com.project.gre.dto.PersonDTO;
 import com.project.gre.repository.PersonRepository;
+import com.project.gre.repository.ProjectRepository;
 import com.project.gre.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,9 +18,12 @@ public class PersonServiceImpl implements PersonService {
 
     private PersonRepository personRepository;
 
+    private ProjectRepository projectRepository;
+
     @Autowired
-    public PersonServiceImpl(PersonRepository personRepository) {
+    public PersonServiceImpl(PersonRepository personRepository, ProjectRepository projectRepository) {
         this.personRepository = personRepository;
+        this.projectRepository = projectRepository;
     }
 
 
@@ -37,7 +41,10 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public void delete(Long id) {
         Person person = find(id);
-        personRepository.delete(person);
+        if (projectRepository.countByPerson_Id(id) == 0) {
+            personRepository.delete(person);
+        }
+
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.project.gre.exception.ResourceNotFoundException;
 import com.project.gre.model.Building;
 import com.project.gre.dto.BuildingDTO;
 import com.project.gre.repository.BuildingRepository;
+import com.project.gre.repository.ProjectRepository;
 import com.project.gre.service.impl.BuildingServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,10 +30,13 @@ public class BuildingServiceTest {
     @Mock
     private BuildingRepository buildingRepository;
 
+    @Mock
+    private ProjectRepository projectRepository;
+
     @Before
     public void setUp()
     {
-        buildingService = new BuildingServiceImpl(buildingRepository);
+        buildingService = new BuildingServiceImpl(buildingRepository,projectRepository);
     }
 
 
@@ -101,6 +105,7 @@ public class BuildingServiceTest {
          buildingService.find(1L);
 
     }
+
     @Test
     public void deleteShouldDelete() {
         Building buildingA = mock(Building.class);
