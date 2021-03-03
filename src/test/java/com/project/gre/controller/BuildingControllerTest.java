@@ -32,9 +32,8 @@ public class BuildingControllerTest {
     private BuildingService buildingService;
 
 
-
     @Test
-    public void findAllShouldReturnOK() throws Exception {
+    public void findAllShouldReturnSuccess() throws Exception {
         when(buildingService.findAll(any())).thenReturn(Page.empty());
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/buildings/"))
                 .andExpect(status().isOk());
@@ -64,7 +63,9 @@ public class BuildingControllerTest {
         buildingA.setName("name");
         BuildingDTO buildingDTO = new BuildingDTO();
         buildingDTO.setName("name");
+
         when(buildingService.create(any())).thenReturn(buildingA);
+
         mockMvc.perform(MockMvcRequestBuilders.post("/v1/buildings/")
                 .contentType(MediaType.APPLICATION_JSON).content(new ObjectMapper().writeValueAsString(buildingDTO)
                 ))
@@ -79,7 +80,9 @@ public class BuildingControllerTest {
         buildingA.setName("name");
         BuildingDTO buildingDTO = new BuildingDTO();
         buildingDTO.setName("name");
+
         when(buildingService.update(anyLong(),any(BuildingDTO.class))).thenReturn(buildingA);
+
         mockMvc.perform(MockMvcRequestBuilders.patch("/v1/buildings/1")
                 .contentType(MediaType.APPLICATION_JSON).content(new ObjectMapper().writeValueAsString(buildingDTO))
         ).andExpect(status().isOk());

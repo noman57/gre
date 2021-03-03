@@ -125,8 +125,9 @@ public class ProjectServiceTest {
         given(projectRepository.findById(1L))
                 .willReturn(Optional.ofNullable(project));
         Project returnedProject = projectService.find(1L);
-        assertThat(returnedProject).isNotNull();
-        assertThat(returnedProject).isEqualTo(project);
+        assertThat(returnedProject)
+                .isNotNull().
+                isEqualTo(project);
 
     }
 
@@ -153,6 +154,6 @@ public class ProjectServiceTest {
     public void findProjectsByFilterAndReturnSuccess() {
         doReturn(Page.empty()).when(projectRepository).findAll(any(ProjectSpecification.class), any(Pageable.class));
         Page<Project> byFilter = projectService.findByFilter(mock(ProjectFilterDTO.class), Pageable.unpaged());
-        assertThat(byFilter).hasSize(0);
+        assertThat(byFilter).isEmpty();
     }
 }

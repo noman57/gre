@@ -32,8 +32,6 @@ public class PersonControllerTest {
     @MockBean
     private PersonService personService;
 
-
-
     @Test
     public void findAllShouldReturnOK() throws Exception {
         when(personService.findAll(any())).thenReturn(Page.empty());

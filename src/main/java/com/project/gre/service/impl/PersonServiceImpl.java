@@ -44,7 +44,7 @@ public class PersonServiceImpl implements PersonService {
         if (projectRepository.countByPerson_Id(id) == 0) {
             personRepository.delete(person);
         }else{
-            throw new IllegalArgumentException("Building already linked with project");
+            throw new IllegalArgumentException("Person already linked with project");
         }
 
     }

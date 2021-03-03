@@ -61,9 +61,11 @@ public class ProjectRepositoryTest {
         project.setBuilding(building);
         project.setPerson(person);
         testEntityManager.persistAndFlush(project);
+
         ProjectSpecification projectSpecification = new ProjectSpecification(new ProjectFilterDTO());
-        Page<Project> byPersonId = projectRepository.findAll(projectSpecification,Pageable.unpaged());
-        assertThat(byPersonId).hasSize(1);
+
+        Page<Project> projectPage = projectRepository.findAll(projectSpecification,Pageable.unpaged());
+        assertThat(projectPage).hasSize(1);
     }
 
     @Test
@@ -83,9 +85,11 @@ public class ProjectRepositoryTest {
         ProjectFilterDTO criteria = new ProjectFilterDTO();
         criteria.setBuildingId(building.getId());
         criteria.setPersonId(person.getId());
+
         ProjectSpecification projectSpecification = new ProjectSpecification(criteria);
-        Page<Project> byPersonId = projectRepository.findAll(projectSpecification,Pageable.unpaged());
-        assertThat(byPersonId).hasSize(1);
+
+        Page<Project> projectPage = projectRepository.findAll(projectSpecification,Pageable.unpaged());
+        assertThat(projectPage).hasSize(1);
     }
 
     @Test
@@ -105,9 +109,11 @@ public class ProjectRepositoryTest {
         ProjectFilterDTO criteria = new ProjectFilterDTO();
         criteria.setBuildingId(55L);
         criteria.setPersonId(66L);
+
         ProjectSpecification projectSpecification = new ProjectSpecification(criteria);
-        Page<Project> byPersonId = projectRepository.findAll(projectSpecification,Pageable.unpaged());
-        assertThat(byPersonId).isEmpty();
+
+        Page<Project> projectPage = projectRepository.findAll(projectSpecification,Pageable.unpaged());
+        assertThat(projectPage).isEmpty();
     }
 
 

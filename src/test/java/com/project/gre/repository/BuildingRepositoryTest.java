@@ -20,20 +20,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BuildingRepositoryTest {
 
     @Autowired
-    private  BuildingRepository buildingRepository;
+    private BuildingRepository buildingRepository;
 
     @Autowired
     private TestEntityManager testEntityManager;
 
 
     @Test
-    public void createShouldCreate()
-    {
+    public void createShouldCreate() {
         Building building = new Building();
         building.setName("b1");
         Building persistBuilding = testEntityManager.persistAndFlush(building);
         Optional<Building> buildingOptional = buildingRepository.findById(persistBuilding.getId());
-        assertThat(buildingOptional.isPresent()).isTrue();
+        assertThat(buildingOptional).isPresent();
     }
-
 }

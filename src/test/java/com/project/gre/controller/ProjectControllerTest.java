@@ -38,8 +38,6 @@ public class ProjectControllerTest {
     @MockBean
     private ProjectService projectService;
 
-
-
     @Test
     public void findAllShouldReturnOK() throws Exception {
         when(projectService.findAll(any())).thenReturn(Page.empty());
@@ -71,8 +69,8 @@ public class ProjectControllerTest {
         project.setName("name");
         ProjectDTO projectDTO = new ProjectDTO();
         projectDTO.setName("name");
-        projectDTO.setPersonId(2l);
-        projectDTO.setBuildingId(3l);
+        projectDTO.setPersonId(2L);
+        projectDTO.setBuildingId(3L);
         projectDTO.setStatus(ProjectStatus.IN_PROGRESS);
         when(projectService.create(any())).thenReturn(project);
         mockMvc.perform(MockMvcRequestBuilders.post("/v1/projects/")
@@ -89,8 +87,8 @@ public class ProjectControllerTest {
         project.setName("name");
         ProjectDTO projectDTO = new ProjectDTO();
         projectDTO.setName("name");
-        projectDTO.setPersonId(4l);
-        projectDTO.setBuildingId(5l);
+        projectDTO.setPersonId(4L);
+        projectDTO.setBuildingId(5L);
         projectDTO.setStatus(ProjectStatus.COMPLETE);
         when(projectService.update(anyLong(),any(ProjectDTO.class))).thenReturn(project);
         mockMvc.perform(MockMvcRequestBuilders.patch("/v1/projects/1")
