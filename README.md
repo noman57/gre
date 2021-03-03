@@ -45,6 +45,7 @@ Front end can be found https://github.com/noman57/gre-front
    * Lombok removes boilerplate codes
    * It uses Javax validation libraries validates incoming DTOs.
    * Implements Spring Java based initializer
+   * Get method was used for filter to enable caching 
    * Swagger Ui was added for rest endpoint debugging http://localhost:8080/swagger-ui/
   
 ## Challenges
@@ -57,7 +58,7 @@ Since I did not work in front end for last four years it was quite a challenge I
    * Auth0 
 
 
-##Additional Libraries
+## Additional Libraries
    * Project uses Lombok to remove boilerplate code. Please visit https://projectlombok.org for more details.
    * I really love swagger. When working with the backend it's really great way to test out your endpoints. More info can be found on their website https://swagger.io
    
